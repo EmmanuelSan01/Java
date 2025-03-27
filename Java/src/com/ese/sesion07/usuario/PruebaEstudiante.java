@@ -8,7 +8,6 @@ public class PruebaEstudiante {
     public static void main(String[] args) {
         Estudiante e = new Estudiante("123456", "Emmanuel Sánchez", "123456");
         
-        System.out.println(e.getNombre());
-        
+        System.out.println(e.getNombre());   
     }
 }
