@@ -11,23 +11,27 @@ public class Persona {
     private String apellido;
     private Fecha fechaNac;
     private List<Actividad> actividades;
-
+    private static int contPersona = 0;
+    private int codigo;
+    
     public Persona() {
-        nombre = "";
-        apellido = "";
-        fechaNac = null;
-        actividades = null;
+        crearPersona("", "", null);
     }
     
     public Persona(String nombre, String apellido) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+        crearPersona(nombre, apellido, null);
     }
 
     public Persona(String nombre, String apellido, Fecha fechaNac) {
+        crearPersona(nombre, apellido, fechaNac);
+    }
+    
+    private void crearPersona(String nombre, String apellido, Fecha fechaNac) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
+        actividades = null;
+        codigo = ++contPersona;
     }
 
     public String getNombre() {
@@ -69,5 +73,9 @@ public class Persona {
     @Override
     public String toString() {
         return "nombre=" + nombre + ", apellido=" + apellido + ", fechaNac=" + fechaNac + ", actividades=" + actividades;
+    }
+    
+    public int getCodigo() {
+        return codigo;
     }
 }
